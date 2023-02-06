@@ -56,6 +56,7 @@ module.exports = {
        const lastValues = await  I.grabAttributeFromAll(hpdValues, 'title');
        const indicators = await  I.grabAttributeFromAll(hpdIndicators, 'alt');
 
+       let errorCount = 0;
        for(let i=0; i<=distributionNames.length; i++){
         const name = distributionNames[i];
         const curValue = parseInt(currentValues[i]);
@@ -79,10 +80,10 @@ module.exports = {
             }
         }
         if(error){
+            errorCount++;
             I.say("Error for name: " + name + ", hbd current value: " + curValue + ", yesterday value: "+ lastValue + ", indicator: " + indicator);
         }
        }
-
-
+       I.assertTrue(errorCount == 0, "Error in HPD Indicators, Count:"+errorCount);
     },
   };
