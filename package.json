@@ -1,0 +1,25 @@
+{
+  "name": "ikhokha-codeceptjs-distrowatch",
+  "version": "1.0.0",
+  "description": "This framework contains Automation tests for ikhokha test exercise",
+  "dependencies": {
+    "allure-commandline": "^2.20.1",
+    "chai": "^4.3.7",
+    "codeceptjs": "^3.3.7",
+    "codeceptjs-chai": "^2.3.3",
+    "webdriverio": "^7.11.0"
+  },
+  "devDependencies": {
+    "@wdio/cli": "^7.10.1",
+    "@wdio/selenium-standalone-service": "^7.30.0"
+  },
+  "scripts": {
+    "build": "npm update && npm install && npm install @wdio/selenium-standalone-service --save",
+    "test": "npx codeceptjs run --verbose",
+    "report": "allure serve output",
+    "report:generate": "allure generate output --clean"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
